@@ -1,0 +1,6 @@
+{
+  "name": "eSim Tool Manager",
+  "description": "Automated Tool Manager for eSim: installation management, dependency checking, version detection, and diagnostics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

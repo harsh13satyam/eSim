@@ -1,0 +1,5 @@
+# eSim Automated Tool Manager
+# Standard library is primarily used (Python 3.10+)
+# Optional development/testing dependencies:
+pytest>=7.4.0
+pytest-cov>=4.1.0
