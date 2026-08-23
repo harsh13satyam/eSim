@@ -85,6 +85,42 @@ async function startServer() {
     }
   });
 
+  // API Route: Download Design Document in DOCX format
+  app.get("/api/download-docx", (req, res) => {
+    const docxPath = path.join(process.cwd(), "docs", "eSim_Automated_Tool_Manager_Design_Document.docx");
+    if (fs.existsSync(docxPath)) {
+      res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+      res.setHeader("Content-Disposition", 'attachment; filename="eSim_Automated_Tool_Manager_Design_Document.docx"');
+      res.sendFile(docxPath);
+    } else {
+      res.status(404).json({ error: "DOCX file not found. Run python3 generate_docx.py" });
+    }
+  });
+
+  // API Route: Download Internship Proposal in DOCX format
+  app.get("/api/download-proposal-docx", (req, res) => {
+    const docxPath = path.join(process.cwd(), "docs", "eSim_Tool_Manager_Internship_Proposal.docx");
+    if (fs.existsSync(docxPath)) {
+      res.setHeader("Content-Type", "application/vnd.openxmlformats-officedocument.wordprocessingml.document");
+      res.setHeader("Content-Disposition", 'attachment; filename="eSim_Tool_Manager_Internship_Proposal.docx"');
+      res.sendFile(docxPath);
+    } else {
+      res.status(404).json({ error: "Proposal DOCX file not found. Run python3 generate_proposal_docx.py" });
+    }
+  });
+
+  // API Route: Download Internship Proposal in PDF format
+  app.get("/api/download-proposal-pdf", (req, res) => {
+    const pdfPath = path.join(process.cwd(), "docs", "eSim_Tool_Manager_Internship_Proposal.pdf");
+    if (fs.existsSync(pdfPath)) {
+      res.setHeader("Content-Type", "application/pdf");
+      res.setHeader("Content-Disposition", 'attachment; filename="eSim_Tool_Manager_Internship_Proposal.pdf"');
+      res.sendFile(pdfPath);
+    } else {
+      res.status(404).json({ error: "PDF file not found. Run python3 generate_pdf.py" });
+    }
+  });
+
   // Vite middleware for development
   if (process.env.NODE_ENV !== "production") {
     const vite = await createViteServer({

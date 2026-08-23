@@ -18,6 +18,7 @@ import {
   ShieldCheck,
   RefreshCw,
   Wrench,
+  Download,
 } from "lucide-react";
 
 interface RunResponse {
@@ -221,6 +222,27 @@ export default function App() {
           </div>
 
           <div className="h-4 w-[1px] bg-[#1a1a1a] hidden sm:block"></div>
+
+          <div className="flex items-center gap-2">
+            <a
+              href="/api/download-proposal-pdf"
+              download="eSim_Tool_Manager_Internship_Proposal.pdf"
+              className="px-3 py-1.5 bg-[#dc2626] hover:bg-[#ef4444] border border-[#b91c1c] text-xs font-mono text-white rounded transition active:scale-95 flex items-center gap-1.5 font-bold shadow-sm"
+              title="Download Internship Proposal in direct PDF format"
+            >
+              <Download className="w-3 h-3 text-white" />
+              PDF FILE
+            </a>
+            <a
+              href="/api/download-proposal-docx"
+              download="eSim_Tool_Manager_Internship_Proposal.docx"
+              className="px-3 py-1.5 bg-[#1e3a8a] hover:bg-[#1d4ed8] border border-[#2563eb] text-xs font-mono text-[#dbeafe] rounded transition active:scale-95 flex items-center gap-1.5 font-semibold shadow-sm"
+              title="Download Internship Proposal in editable MS Word format"
+            >
+              <Download className="w-3 h-3 text-[#93c5fd]" />
+              DOCX
+            </a>
+          </div>
 
           <div className="flex items-center gap-3">
             <label className="flex items-center gap-1.5 text-xs text-[#888] cursor-pointer select-none">
@@ -542,12 +564,50 @@ export default function App() {
                 </div>
               </div>
 
-              <div className="bg-[#0a0a0a] border border-[#1a1a1a] p-5 rounded-lg space-y-3">
-                <h4 className="text-sm font-semibold text-white">Project Files & Documentation</h4>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
+              <div className="bg-[#0a0a0a] border border-[#1a1a1a] p-5 rounded-lg space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                  <div>
+                    <h4 className="text-sm font-semibold text-white">Project Deliverables & Submission Files</h4>
+                    <p className="text-xs text-[#777] mt-0.5">
+                      Editable Microsoft Word documents formatted for direct screening task submission.
+                    </p>
+                  </div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <a
+                      href="/api/download-proposal-pdf"
+                      download="eSim_Tool_Manager_Internship_Proposal.pdf"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#dc2626] hover:bg-[#ef4444] text-white text-xs font-semibold rounded shadow-md transition active:scale-95 border border-[#b91c1c]"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Download PDF (.pdf)
+                    </a>
+                    <a
+                      href="/api/download-proposal-docx"
+                      download="eSim_Tool_Manager_Internship_Proposal.docx"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-[#1e3a8a] hover:bg-[#1d4ed8] text-white text-xs font-semibold rounded shadow-md transition active:scale-95 border border-[#3b82f6]"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Proposal (.docx)
+                    </a>
+                    <a
+                      href="/api/download-docx"
+                      download="eSim_Automated_Tool_Manager_Design_Document.docx"
+                      className="inline-flex items-center gap-2 px-3 py-2 bg-[#141414] hover:bg-[#202020] border border-[#2a2a2a] text-[#d4d4d4] text-xs font-semibold rounded transition active:scale-95"
+                    >
+                      <Download className="w-3.5 h-3.5" />
+                      Design Doc (.docx)
+                    </a>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-4 gap-3 text-xs font-mono pt-1">
+                  <div className="p-3 bg-[#050505] border border-[#1d4ed8]/40 rounded">
+                    <span className="text-[#60a5fa] font-bold">Proposal (.docx)</span>
+                    <p className="text-[11px] text-[#888] mt-1">Formal internship proposal report</p>
+                  </div>
                   <div className="p-3 bg-[#050505] border border-[#1a1a1a] rounded">
-                    <span className="text-[#3b82f6] font-bold">docs/DESIGN.md</span>
-                    <p className="text-[11px] text-[#666] mt-1">Full design & sequence diagrams</p>
+                    <span className="text-[#3b82f6] font-bold">Design Doc (.docx)</span>
+                    <p className="text-[11px] text-[#666] mt-1">Detailed OpenXML technical spec</p>
                   </div>
                   <div className="p-3 bg-[#050505] border border-[#1a1a1a] rounded">
                     <span className="text-[#3b82f6] font-bold">docs/TESTING.md</span>
